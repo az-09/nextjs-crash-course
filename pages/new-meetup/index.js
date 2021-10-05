@@ -1,5 +1,6 @@
+import { Fragment } from "react";
 import NewMeetupForm from "../../components/meetups/NextMeetupForm";
-
+import Head from 'next/head'
 
 export default function NewMeetupPage() {
     async function addMeetupHandler(enteredMeetupData) {
@@ -16,5 +17,15 @@ export default function NewMeetupPage() {
        console.log(data)
     }
 
-    return <NewMeetupForm onAddMeetup={addMeetupHandler} />
+    return (
+        <Fragment>
+            <Head>
+            <title>Add a new meetup</title>
+                <meta name="description" content="Add a new meetup"/>
+
+
+            </Head>
+            <NewMeetupForm onAddMeetup={addMeetupHandler} />
+        </Fragment>
+    ) 
 }
